@@ -1,0 +1,27 @@
+# Virtual environments
+venv/
+env/
+myenv/
+
+# Data files
+data/
+
+# Model binaries
+model/*.pkl
+*.joblib
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Streamlit / tools
+.streamlit/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
