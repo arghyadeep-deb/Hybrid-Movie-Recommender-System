@@ -2,6 +2,12 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import pickle
 import numpy as np
+import sys
+import os
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+import download_models
+
 
 # Load Pickles
 with open("model/content_sim.pkl", "rb") as f:
