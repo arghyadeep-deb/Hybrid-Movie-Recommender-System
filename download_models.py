@@ -1,27 +1,24 @@
 import os
-import requests
+import gdown
 
 MODEL_DIR = "model"
 os.makedirs(MODEL_DIR, exist_ok=True)
 
 FILES = {
     "cf_sim.pkl": "1FPWuKFbJ6Y-TOYixPo6VMDoliJg8vPYh",
-    "content_sim.pkl": "1wlkznyMPB5nFkenEg2boXW0XEFEe_qA2",
-    "metadata.pkl": "1NE5hk92lOJH5Lqdg7XgT2tWtRBubhwOy",
-    "tfidf.pkl": "1HMl0cEw3_9hXVFkXhO-_lzG0xstY85pG",
+    "content_sim.pkl": "PASTE_CONTENT_SIM_FILE_ID",
+    "metadata.pkl": "PASTE_METADATA_FILE_ID",
+    "tfidf.pkl": "PASTE_TFIDF_FILE_ID",
 }
 
-def download_file(url, dest):
-    if os.path.exists(dest):
-        print(f"{dest} already exists. Skipping download.")
+def download(file_id, output_path):
+    if os.path.exists(output_path):
+        print(f"{output_path} already exists. Skipping.")
         return
 
-    print(f"Downloading {dest}...")
-    response = requests.get(url)
-    response.raise_for_status()
+    url = f"https://drive.google.com/uc?id={file_id}"
+    print(f"Downloading {output_path}...")
+    gdown.download(url, output_path, quiet=False)
 
-    with open(dest, "wb") as f:
-        f.write(response.content)
-
-for filename, url in FILES.items():
-    download_file(url, os.path.join(MODEL_DIR, filename))
+for filename, file_id in FILES.items():
+    download(file_id, os.path.join(MODEL_DIR, filename))
