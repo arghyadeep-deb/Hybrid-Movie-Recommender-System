@@ -18,7 +18,7 @@ def download(file_id, output_path):
 
     url = f"https://drive.google.com/uc?id={file_id}"
     print(f"Downloading {output_path}...")
-    gdown.download(url, output_path, quiet=False)
+    gdown.download(url, output_path, quiet=False, fuzzy=True)
 
 for filename, file_id in FILES.items():
     download(file_id, os.path.join(MODEL_DIR, filename))
