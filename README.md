@@ -4,7 +4,6 @@ This repository demonstrates training, evaluating, and deploying a recommendatio
 
 ---
 
----
 
 ## About the Project
 
